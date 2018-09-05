@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+.weddle {
+  position: relative;
+}
+
+.weedle__head {
+  height: 200px;
+  width: 200px;
+  margin: 200px;
+  border-radius: 50%;
+  background-color: #ebca77;
+  border-bottom: 10px solid #cc956a;
+  transform: rotate(40deg);
+}
+
+.weedle__nose {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  background-color: #bd70a2;
+  border-bottom: 10px solid #a75e8d;
+}
+
+.weedle__body {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: #ebca77;
+  border-bottom: 10px solid #cc956a;
+  transform: rotate(40deg);
+}

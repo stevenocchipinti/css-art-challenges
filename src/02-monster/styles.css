@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.monster {
+  background-color: #000000;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.eye {
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  display:flex;
+  justify-content: center;
+  top: 50px;
+  height: 110px;
+  width: 110px;
+}
+
+.pupil {
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  height: 20px;
+  width: 20px;
+}
+
+.eye__left {
+  left: 40px;
+  transform: rotateX(0deg);
+}
+
+.eye__right {
+  right: 40px;
+}
+
+.limb {
+  position: absolute;
+  transform-origin: right top;
+  border: 4px solid black;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  height: 0;
+  width: 150px;
+}
+.limb:after {
+  content: '';
+  position: absolute;
+  border: 4px solid black;
+  height: 20px;
+  width: 20px;
+  top: -6px;
+  transform-origin: right;
+  transform: rotate(45deg);
+  border-left: none;
+  border-bottom: none;
+  left: -8px;
+}
+
+.limb__left-arm {
+  transform: rotate(20deg);
+  left: -140px;
+  top: 100px;
+}
+
+.limb__right-arm {
+  transform: rotate(1600deg);
+  right: 10px;
+  top: 100px;
+}
+
+.limb__left-leg {
+  transform: rotate(-60deg);
+  left: -50px;
+  bottom: 10px;
+}
+
+.limb__right-leg {
+  transform: rotate(-120deg);
+  right: 90px;
+  bottom: 10px;
+}
