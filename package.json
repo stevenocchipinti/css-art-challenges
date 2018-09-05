@@ -1,0 +1,17 @@
+{
+  "name": "css-art-challenges",
+  "version": "1.0.0",
+  "main": "index.pug",
+  "repository": "git@github.com:stevenocchipinti/css-art-challenges.git",
+  "author": "Steve Occhipinti <dev@stevenocchipinti.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/index.pug src/*/index.html src/*/index.pug"
+  },
+  "devDependencies": {
+    "pug": "^2.0.3"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.9.7"
+  }
+}

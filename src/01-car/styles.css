@@ -4,7 +4,6 @@ body {
   background: linear-gradient(#00b0ff 0%, #02ff0c 100%);
 }
 
-
 /****************\
 |      Road      |
 \****************/
@@ -24,12 +23,13 @@ body {
   width: 1000%;
   height: 20px;
   background: repeating-linear-gradient(
-    90deg,
-    white 0,
-    white 70%,
-    transparent 71%,
-    transparent
-  ) 0 / 130px;
+      90deg,
+      white 0,
+      white 70%,
+      transparent 71%,
+      transparent
+    )
+    0 / 130px;
 }
 
 /* Animation */
@@ -37,24 +37,28 @@ body {
   animation: moving 120s reverse linear infinite;
 }
 
-
-
 /***************\
 |      Car      |
 \***************/
 
 :root {
-  --car-border-color: black; 
-  --car-body-color: white; 
+  --car-border-color: black;
+  --car-body-color: white;
 }
 
 @keyframes moving {
-  to { background-position: 100% 100% }
+  to {
+    background-position: 100% 100%;
+  }
 }
 
 @keyframes driving {
-  from { transform: translate(-1000px, 15px) }
-  to   { transform: translate(1000px, 15px)  }
+  from {
+    transform: translate(-1000px, 15px);
+  }
+  to {
+    transform: translate(1000px, 15px);
+  }
 }
 
 /* Body */
