@@ -5,6 +5,33 @@
   margin-left: 200px;
 }
 
+/********
+ * Smoke
+ ********/
+
+.gastly__smoke {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  color: rebeccapurple;
+}
+
+.gastly__smoke__ring {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: currentColor;
+  top: 160px;
+  left: 160px;
+}
+.gastly__smoke__ring1 {
+  box-shadow: -60px 60px 0 26px, 60px 60px 0 20px, 60px -60px 0 27px,
+    -60px -60px 0 23px, -23px -102px 0 0, -65px -121px 0 0, 34px -111px 0 0,
+    116px -67px 0 0, 111px -4px 0 0, 109px 68px 0 -1px, 4px 109px 0 3px,
+    -101px 97px 0 4px, -109px 10px 0 18px;
+}
+
 /*******
  * Head
  *******/
@@ -18,17 +45,6 @@
   border-radius: 50%;
   background-color: #290a4c;
   border: 3px solid #684490;
-}
-
-/********
- * Smoke
- ********/
-
-.gastly__smoke {
-  position: absolute;
-  background-color: rebeccapurple;
-  width: 400px;
-  height: 400px;
 }
 
 /*******
