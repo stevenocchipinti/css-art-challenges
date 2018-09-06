@@ -265,3 +265,23 @@
   left: 40px;
   top: 70px;
 }
+
+/*******
+ * Tail
+ *******/
+
+.weedle__tail {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 48px solid #e1eee7;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  transform: rotate(152deg);
+  position: absolute;
+  bottom: -23px;
+  left: -195px;
+  filter: drop-shadow(0px 1px 0px #aaa);
+}
