@@ -3,3 +3,29 @@
 :after {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+}
+
+.battlefield {
+  max-width: 1000px;
+  max-height: 800px;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+}
+
+.player1 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.player2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
