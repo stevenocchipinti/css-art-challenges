@@ -13,6 +13,29 @@ html(lang="en")
     //   source(src="pokemon.opus" type="audio/ogg")
 
     .battlefield
+
+      .clickzone.clickzone__player1
+        input(type="checkbox")
+        input(type="checkbox")
+        input(type="checkbox")
+        input(type="checkbox")
+        .bar
+        .score-panel.score-panel__player1
+          p Weedle
+          span.hp
+          | 0/40
+
+      .clickzone.clickzone__player2
+        input(type="checkbox")
+        input(type="checkbox")
+        input(type="checkbox")
+        input(type="checkbox")
+        .bar
+        .score-panel.score-panel__player2
+          p Gastly
+          span.hp
+          | 0/40
+
       .player1
         .weedle
           .weedle__tail

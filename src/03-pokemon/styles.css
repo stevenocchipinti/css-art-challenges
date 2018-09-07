@@ -1,3 +1,7 @@
+/********
+ * Reset
+ ********/
+
 *,
 :before,
 :after {
@@ -7,6 +11,26 @@
 body {
   margin: 0;
 }
+
+/********
+ * Fonts
+ ********/
+
+@font-face {
+  font-family: 'pokemon-font';
+  src: url('./pokemon-font.woff2') format('woff2');
+}
+
+body {
+  font-size: 20px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: 'pokemon-font', monospace;
+}
+
+/*********
+ * Layout
+ *********/
 
 .battlefield {
   max-width: 1000px;
@@ -18,14 +42,110 @@ body {
   background-color: #f7f7f7;
 }
 
-.player1 {
+.player1,
+.clickzone__player1 {
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.player2 {
+.player2,
+.clickzone__player2 {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.clickzone {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+}
+
+/****************
+ * Scoring Logic
+ ****************/
+
+::root {
+  counter-reset: player1-score, player2-score;
+}
+
+/* Make the checkboxes stack and disappear after being clicked */
+.clickzone input {
+  position: absolute;
+  z-index: 1;
+  height: 400px;
+  width: 400px;
+  margin: 0;
+  opacity: 0;
+}
+.clickzone input:checked {
+  transform: translateY(-99999px);
+}
+
+/* This counts the "unchecked" checkboxes */
+.clickzone__player1 input[type='checkbox'] {
+  counter-increment: player1-score;
+}
+.clickzone__player2 input[type='checkbox'] {
+  counter-increment: player2-score;
+}
+
+/* This would count the "checked" checkboxes, I don't need this number but this
+   line seems to be required, regrdless of the name of the counter */
+.clickzone__player1 input[type='checkbox']:checked {
+  counter-increment: null;
+}
+.clickzone__player2 input[type='checkbox']:checked {
+  counter-increment: null;
+}
+
+.clickzone__player1 .hp::after {
+  margin-left: 20px;
+  content: counter(player1-score);
+}
+
+.clickzone__player2 .hp::after {
+  margin-left: 20px;
+  content: counter(player2-score);
+}
+
+:checked + :checked + :checked + :checked ~ .bar {
+  width: 0;
+}
+
+:not(:checked) + :checked + :checked + :checked ~ .bar {
+  width: 100px;
+}
+
+:not(:checked) + :not(:checked) + :checked + :checked ~ .bar {
+  width: 200px;
+}
+
+:not(:checked) + :not(:checked) + :not(:checked) + :checked ~ .bar {
+  width: 300px;
+}
+
+.bar {
+  background-color: green;
+  border: 2px solid black;
+  border-radius: 20px;
+  height: 20px;
+  width: 400px;
+}
+
+/***************
+ * Score Panels
+ ***************/
+
+.score-panel__player1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.score-panel__player2 {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
