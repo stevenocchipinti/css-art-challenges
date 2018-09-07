@@ -1,5 +1,6 @@
 .gastly {
   position: relative;
+  border: 4px dashed #eee;
   height: 400px;
   width: 400px;
   margin-left: 200px;
@@ -24,12 +25,31 @@
   background-color: currentColor;
   top: 160px;
   left: 160px;
+  opacity: 0.9;
 }
 .gastly__smoke__ring1 {
   box-shadow: -60px 60px 0 26px, 60px 60px 0 20px, 60px -60px 0 27px,
     -60px -60px 0 23px, -23px -102px 0 0, -65px -121px 0 0, 34px -111px 0 0,
     116px -67px 0 0, 111px -4px 0 0, 109px 68px 0 -1px, 4px 109px 0 3px,
     -101px 97px 0 4px, -109px 10px 0 18px;
+  animation: spin 25s infinite linear;
+  transform: rotateY(180deg);
+}
+.gastly__smoke__ring2 {
+  box-shadow: -71px 60px 0 26px, 61px 60px 0 20px, 62px -60px 0 27px,
+    -76px -61px 0 7px, -34px -102px 0 14px, 36px -119px 0 -13px,
+    97px -98px 0 4px, 115px -18px 0 0, 110px 24px 0 -9px, 2px 103px 0 -1px,
+    56px 118px 0 -7px, -108px -60px 0 -3px, -85px 10px 0 24px;
+  animation: spin 25s infinite linear reverse;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*******
