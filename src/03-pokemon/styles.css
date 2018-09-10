@@ -76,6 +76,43 @@ body {
   left: 0;
 }
 
+.score-panel__arrow {
+  position: absolute;
+  height: 100px;
+  width: 500px;
+  border: 5px solid black;
+}
+.score-panel__arrow::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+}
+
+.score-panel__arrow--p1 {
+  bottom: 50px;
+  right: 0;
+  border-top: none;
+  border-left: none;
+}
+.score-panel__arrow--p1::after {
+  border-left: 35px solid transparent;
+  border-bottom: 15px solid black;
+}
+
+.score-panel__arrow--p2 {
+  top: 50px;
+  left: 0;
+  border-top: none;
+  border-right: none;
+}
+.score-panel__arrow--p2::after {
+  border-right: 35px solid transparent;
+  border-bottom: 15px solid black;
+  right: 0;
+}
+
 /****************
  * Scoring Logic
  ****************/
