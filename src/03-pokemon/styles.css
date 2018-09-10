@@ -42,15 +42,15 @@ body {
   background-color: #f7f7f7;
 }
 
-.player1,
-.clickzone__player1 {
+.p1,
+.clickzone--p1 {
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.player2,
-.clickzone__player2 {
+.p2,
+.clickzone--p2 {
   position: absolute;
   top: 0;
   right: 0;
@@ -62,16 +62,30 @@ body {
   position: absolute;
 }
 
+.score-panel__name--p1,
+.score-panel__bar--p1,
+.score-panel__hp--p1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.score-panel__name--p2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /****************
  * Scoring Logic
  ****************/
 
 ::root {
-  counter-reset: player1-score, player2-score;
+  counter-reset: p1-score, p2-score;
 }
 
 /* Make the checkboxes stack and disappear after being clicked */
-.clickzone input {
+input.clickzone {
   position: absolute;
   z-index: 1;
   height: 400px;
@@ -79,73 +93,61 @@ body {
   margin: 0;
   opacity: 0;
 }
-.clickzone input:checked {
+input.clickzone:checked {
   transform: translateY(-99999px);
 }
 
 /* This counts the "unchecked" checkboxes */
-.clickzone__player1 input[type='checkbox'] {
-  counter-increment: player1-score;
+input.clickzone--p1[type='checkbox'] {
+  counter-increment: p1-score;
 }
-.clickzone__player2 input[type='checkbox'] {
-  counter-increment: player2-score;
+input.clickzone--p2[type='checkbox'] {
+  counter-increment: p2-score;
 }
 
 /* This would count the "checked" checkboxes, I don't need this number but this
    line seems to be required, regrdless of the name of the counter */
-.clickzone__player1 input[type='checkbox']:checked {
+input.clickzone--p1[type='checkbox']:checked {
   counter-increment: null;
 }
-.clickzone__player2 input[type='checkbox']:checked {
+input.clickzone--p2[type='checkbox']:checked {
   counter-increment: null;
 }
 
-.clickzone__player1 .hp::after {
+.score-panel__counter--p1::after {
   margin-left: 20px;
-  content: counter(player1-score);
+  content: counter(p2-score);
 }
 
-.clickzone__player2 .hp::after {
+.score-panel__counter--p2::after {
   margin-left: 20px;
-  content: counter(player2-score);
+  content: counter(p1-score);
 }
 
-:checked + :checked + :checked + :checked ~ .bar {
+:checked + :checked + :checked + :checked ~ .score-panel__bar {
   width: 0;
 }
 
-:not(:checked) + :checked + :checked + :checked ~ .bar {
+:not(:checked) + :checked + :checked + :checked ~ .score-panel__bar {
   width: 100px;
 }
 
-:not(:checked) + :not(:checked) + :checked + :checked ~ .bar {
+:not(:checked) + :not(:checked) + :checked + :checked ~ .score-panel__bar {
   width: 200px;
 }
 
-:not(:checked) + :not(:checked) + :not(:checked) + :checked ~ .bar {
+:not(:checked)
+  + :not(:checked)
+  + :not(:checked)
+  + :checked
+  ~ .score-panel__bar {
   width: 300px;
 }
 
-.bar {
+.score-panel__bar {
   background-color: green;
   border: 2px solid black;
   border-radius: 20px;
   height: 20px;
   width: 400px;
-}
-
-/***************
- * Score Panels
- ***************/
-
-.score-panel__player1 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.score-panel__player2 {
-  position: absolute;
-  top: 0;
-  left: 0;
 }
