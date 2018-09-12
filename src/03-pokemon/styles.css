@@ -63,22 +63,27 @@ body {
 }
 
 .score-panel__name--p1,
-.score-panel__bar--p1,
-.score-panel__hp--p1 {
+.score-panel__bar-outer--p1,
+.score-panel__hp--p1,
+.score-panel__name--p2,
+.score-panel__bar-outer--p2,
+.score-panel__hp--p2 {
   position: absolute;
-  bottom: 0;
-  right: 0;
+}
+
+.score-panel__name--p1 {
+  bottom: 140px;
+  right: 80px;
 }
 
 .score-panel__name--p2 {
-  position: absolute;
-  top: 0;
-  left: 0;
+  top: 45px;
+  left: 80px;
 }
 
 .score-panel__arrow {
   position: absolute;
-  height: 100px;
+  height: 120px;
   width: 500px;
   border: 5px solid black;
 }
@@ -92,7 +97,7 @@ body {
 
 .score-panel__arrow--p1 {
   bottom: 50px;
-  right: 0;
+  right: 50px;
   border-top: none;
   border-left: none;
 }
@@ -103,7 +108,7 @@ body {
 
 .score-panel__arrow--p2 {
   top: 50px;
-  left: 0;
+  left: 50px;
   border-top: none;
   border-right: none;
 }
@@ -113,10 +118,45 @@ body {
   right: 0;
 }
 
+.score-panel__bar-inner,
+.score-panel__bar-outer {
+  position: absolute;
+  margin-left: 70px;
+}
+.score-panel__bar-outer::after {
+  content: 'HP: ';
+  margin-left: -70px;
+}
+.score-panel__bar-inner--p1,
+.score-panel__bar-outer--p1 {
+  bottom: 100px;
+  right: 80px;
+}
+.score-panel__bar-inner--p2,
+.score-panel__bar-outer--p2 {
+  top: 90px;
+  left: 80px;
+}
+
+.score-panel__hp--p1 {
+  bottom: 70px;
+  right: 80px;
+}
+.score-panel__hp--p1::before {
+  content: counter(p2-score);
+}
+
+.score-panel__hp--p2 {
+  top: 120px;
+  left: 80px;
+}
+.score-panel__hp--p2::before {
+  content: counter(p1-score);
+}
+
 /****************
  * Scoring Logic
  ****************/
-
 ::root {
   counter-reset: p1-score, p2-score;
 }
@@ -151,40 +191,29 @@ input.clickzone--p2[type='checkbox']:checked {
   counter-increment: null;
 }
 
-.score-panel__counter--p1::after {
-  margin-left: 20px;
-  content: counter(p2-score);
-}
-
-.score-panel__counter--p2::after {
-  margin-left: 20px;
-  content: counter(p1-score);
-}
-
-:checked + :checked + :checked + :checked ~ .score-panel__bar {
+:checked + :checked + :checked ~ .score-panel__bar-inner {
   width: 0;
 }
 
-:not(:checked) + :checked + :checked + :checked ~ .score-panel__bar {
-  width: 100px;
+:not(:checked) + :checked + :checked ~ .score-panel__bar-inner {
+  width: 111px;
 }
 
-:not(:checked) + :not(:checked) + :checked + :checked ~ .score-panel__bar {
-  width: 200px;
+:not(:checked) + :not(:checked) + :checked ~ .score-panel__bar-inner {
+  width: 222px;
 }
 
-:not(:checked)
-  + :not(:checked)
-  + :not(:checked)
-  + :checked
-  ~ .score-panel__bar {
-  width: 300px;
-}
-
-.score-panel__bar {
-  background-color: green;
+.score-panel__bar-outer {
+  display: flex;
+  align-items: center;
   border: 2px solid black;
   border-radius: 20px;
   height: 20px;
-  width: 400px;
+  width: 333px;
+}
+.score-panel__bar-inner {
+  background-color: green;
+  border-radius: 20px;
+  height: 20px;
+  width: 333px;
 }

@@ -9,7 +9,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1")
 
   body
-    // audio(autoplay)
+    // audio(autoplay controls)
     //   source(src="pokemon.opus" type="audio/ogg")
 
     .battlefield
@@ -18,29 +18,27 @@ html(lang="en")
         input.clickzone.clickzone--p2(type="checkbox")
         input.clickzone.clickzone--p2(type="checkbox")
         input.clickzone.clickzone--p2(type="checkbox")
-        input.clickzone.clickzone--p2(type="checkbox")
 
-        .score-panel__bar.score-panel__bar--p1
+        .score-panel__arrow.score-panel__arrow--p1
+        .score-panel__bar-outer.score-panel__bar-outer--p1
+        .score-panel__bar-inner.score-panel__bar-outer--p1
         .score-panel__name.score-panel__name--p1 Weedle
         .score-panel__hp.score-panel__hp--p1
-          | HP
           span.score-panel__counter--p1
-          | 0/40
-        .score-panel__arrow.score-panel__arrow--p1
+          | 0/30
 
       div
         input.clickzone.clickzone--p1(type="checkbox")
         input.clickzone.clickzone--p1(type="checkbox")
         input.clickzone.clickzone--p1(type="checkbox")
-        input.clickzone.clickzone--p1(type="checkbox")
 
-        .score-panel__bar.score-panel__bar--p2
+        .score-panel__arrow.score-panel__arrow--p2
+        .score-panel__bar-outer.score-panel__bar-outer--p2
+        .score-panel__bar-inner.score-panel__bar-inner--p2
         .score-panel__name.score-panel__name--p2 Gastly
         .score-panel__hp.score-panel__hp--p2
-          | HP
           span.score-panel__counter--p2
-          | 0/40
-        .score-panel__arrow.score-panel__arrow--p2
+          | 0/30
 
       .p1
         .weedle
