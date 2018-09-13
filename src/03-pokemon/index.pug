@@ -14,40 +14,6 @@ html(lang="en")
 
     .battlefield
 
-      div
-        input.clickzone.clickzone--p2(type="checkbox")
-        input.clickzone.clickzone--p2(type="checkbox")
-        input.clickzone.clickzone--p2(type="checkbox")
-
-        .attack-p1.attack-p1--1
-        .attack-p1.attack-p1--2
-        .attack-p1.attack-p1--3
-
-        .score-panel__arrow.score-panel__arrow--p1
-        .score-panel__bar-outer.score-panel__bar-outer--p1
-        .score-panel__bar-inner.score-panel__bar-outer--p1
-        .score-panel__name.score-panel__name--p1 Weedle
-        .score-panel__hp.score-panel__hp--p1
-          span.score-panel__counter--p1
-          | 0/30
-
-      div
-        input.clickzone.clickzone--p1(type="checkbox")
-        input.clickzone.clickzone--p1(type="checkbox")
-        input.clickzone.clickzone--p1(type="checkbox")
-
-        .attack-p2.attack-1--p2
-        .attack-p2.attack-2--p2
-        .attack-p2.attack-3--p2
-
-        .score-panel__arrow.score-panel__arrow--p2
-        .score-panel__bar-outer.score-panel__bar-outer--p2
-        .score-panel__bar-inner.score-panel__bar-inner--p2
-        .score-panel__name.score-panel__name--p2 Gastly
-        .score-panel__hp.score-panel__hp--p2
-          span.score-panel__counter--p2
-          | 0/30
-
       .p1
         .weedle
           .weedle__tail
@@ -64,6 +30,23 @@ html(lang="en")
             .weedle__nose
             .weedle__horn
 
+      div
+        input.clickzone.clickzone--p1(type="checkbox")
+        input.clickzone.clickzone--p1(type="checkbox")
+        input.clickzone.clickzone--p1(type="checkbox")
+
+        .attack-p1.attack-p1--1
+        .attack-p1.attack-p1--2
+        .attack-p1.attack-p1--3
+
+        .score-panel__arrow.score-panel__arrow--p2
+        .score-panel__bar-inner.score-panel__bar-inner--p2
+        .score-panel__bar-outer.score-panel__bar-outer--p2
+        .score-panel__name.score-panel__name--p2 Gastly
+        .score-panel__hp.score-panel__hp--p2
+          span.score-panel__counter--p2
+          | 0/30
+
       .p2
         .gastly
           .gastly__smoke
@@ -75,3 +58,21 @@ html(lang="en")
             .gastly__mouth
               .gastly__tooth.gastly__tooth--left
               .gastly__tooth.gastly__tooth--right
+
+      div
+        input.clickzone.clickzone--p2(type="checkbox")
+        input.clickzone.clickzone--p2(type="checkbox")
+        input.clickzone.clickzone--p2(type="checkbox")
+
+        .attack-p2.attack-p2--1
+        .attack-p2.attack-p2--2
+        .attack-p2.attack-p2--3
+
+        .score-panel__arrow.score-panel__arrow--p1
+        .score-panel__bar-inner.score-panel__bar-outer--p1
+        .score-panel__bar-outer.score-panel__bar-outer--p1
+        .score-panel__name.score-panel__name--p1 Weedle
+        .score-panel__hp.score-panel__hp--p1
+          span.score-panel__counter--p1
+          | 0/30
+

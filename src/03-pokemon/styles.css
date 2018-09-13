@@ -219,11 +219,61 @@ input.clickzone--p2[type='checkbox']:checked {
   width: 333px;
 }
 
-/***************
- * Attack Logic
- ***************/
+/**************************
+ * Attack Logic - Player 1
+ **************************/
 
 @keyframes attack-p1 {
+  0% {
+    opacity: 0;
+    transform: rotate(235deg) scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(235deg) scaleY(5);
+  }
+}
+
+.attack-p1 {
+  opacity: 0;
+  bottom: 170px;
+  position: absolute;
+  left: 350px;
+  height: 100px;
+  width: 5px;
+  z-index: 1;
+  transform-origin: top;
+  border-left: 2px dashed grey;
+  border-right: 2px dotted grey;
+  transform: rotate(235deg) scaleY(5);
+}
+
+.clickzone--p1:checked
+  + .clickzone--p1:checked
+  + .clickzone--p1:checked
+  ~ .attack-p1--1 {
+  animation: attack-p1 0.5s;
+}
+
+.clickzone--p1:not(:checked)
+  + .clickzone--p1:checked
+  + .clickzone--p1:checked
+  ~ .attack-p1--2 {
+  animation: attack-p1 0.5s;
+}
+
+.clickzone--p1:not(:checked)
+  + .clickzone--p1:not(:checked)
+  + .clickzone--p1:checked
+  ~ .attack-p1--3 {
+  animation: attack-p1 0.5s;
+}
+
+/**************************
+ * Attack Logic - Player 2
+ **************************/
+
+@keyframes attack-p2 {
   0% {
     opacity: 0;
     height: 40px;
@@ -243,7 +293,8 @@ input.clickzone--p2[type='checkbox']:checked {
     height: 40px;
   }
 }
-.attack-p1 {
+
+.attack-p2 {
   opacity: 0;
   top: 245px;
   position: absolute;
@@ -257,14 +308,23 @@ input.clickzone--p2[type='checkbox']:checked {
   transform: rotate(50deg);
 }
 
-:checked + :checked + :checked ~ .attack-p1--1 {
-  animation: attack-p1 1s;
+.clickzone--p2:checked
+  + .clickzone--p2:checked
+  + .clickzone--p2:checked
+  ~ .attack-p2--1 {
+  animation: attack-p2 1s;
 }
 
-:not(:checked) + :checked + :checked ~ .attack-p1--2 {
-  animation: attack-p1 1s;
+.clickzone--p2:not(:checked)
+  + .clickzone--p2:checked
+  + .clickzone--p2:checked
+  ~ .attack-p2--2 {
+  animation: attack-p2 1s;
 }
 
-:not(:checked) + :not(:checked) + :checked ~ .attack-p1--3 {
-  animation: attack-p1 1s;
+.clickzone--p2:not(:checked)
+  + .clickzone--p2:not(:checked)
+  + .clickzone--p2:checked
+  ~ .attack-p2--3 {
+  animation: attack-p2 1s;
 }
