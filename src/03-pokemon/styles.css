@@ -39,7 +39,8 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0 auto;
-  background-color: #f7f7f7;
+  /* Matches the default audio player color */
+  background-color: #f0f3f4;
 }
 
 .p1,
@@ -327,4 +328,12 @@ input.clickzone--p2[type='checkbox']:checked {
   + .clickzone--p2:checked
   ~ .attack-p2--3 {
   animation: attack-p2 1s;
+}
+
+/***************
+ * Audio Player
+ ***************/
+
+audio {
+  margin-left: 28px;
 }
