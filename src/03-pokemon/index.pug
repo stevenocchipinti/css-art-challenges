@@ -4,11 +4,76 @@ html(lang="en")
     meta(charset="UTF-8")
     title CSS Pokemon
     link(rel="stylesheet" href="styles.css")
+    link(rel="stylesheet" href="weedle.css")
+    link(rel="stylesheet" href="gastly.css")
     meta(name="viewport" content="width=device-width, initial-scale=1")
 
   body
-    .weedle
-      .weedle__head
-        .weedle__nose
-      .weedle__body
+
+    .battlefield
+
+      audio(autoplay controls)
+        source(src="pokemon.opus" type="audio/ogg")
+
+      .p1
+        .weedle
+          .weedle__tail
+          .weedle__body.weedle__body--7
+          .weedle__body.weedle__body--6
+          .weedle__body.weedle__body--5
+          .weedle__body.weedle__body--4
+          .weedle__body.weedle__body--3
+          .weedle__body.weedle__body--2
+          .weedle__body.weedle__body--1
+          .weedle__head
+            .weedle__eye.weedle__eye--left
+            .weedle__eye.weedle__eye--right
+            .weedle__nose
+            .weedle__horn
+
+      div
+        input.clickzone.clickzone--p1(type="checkbox")
+        input.clickzone.clickzone--p1(type="checkbox")
+        input.clickzone.clickzone--p1(type="checkbox")
+
+        .attack-p1.attack-p1--1
+        .attack-p1.attack-p1--2
+        .attack-p1.attack-p1--3
+
+        .score-panel__arrow.score-panel__arrow--p2
+        .score-panel__bar-inner.score-panel__bar-inner--p2
+        .score-panel__bar-outer.score-panel__bar-outer--p2
+        .score-panel__name.score-panel__name--p2 Gastly
+        .score-panel__hp.score-panel__hp--p2
+          span.score-panel__counter--p2
+          | 0/30
+
+      .p2
+        .gastly
+          .gastly__smoke
+            .gastly__smoke__ring.gastly__smoke__ring1
+            .gastly__smoke__ring.gastly__smoke__ring2
+          .gastly__head
+            .gastly__eye.gastly__eye--left
+            .gastly__eye.gastly__eye--right
+            .gastly__mouth
+              .gastly__tooth.gastly__tooth--left
+              .gastly__tooth.gastly__tooth--right
+
+      div
+        input.clickzone.clickzone--p2(type="checkbox")
+        input.clickzone.clickzone--p2(type="checkbox")
+        input.clickzone.clickzone--p2(type="checkbox")
+
+        .attack-p2.attack-p2--1
+        .attack-p2.attack-p2--2
+        .attack-p2.attack-p2--3
+
+        .score-panel__arrow.score-panel__arrow--p1
+        .score-panel__bar-inner.score-panel__bar-outer--p1
+        .score-panel__bar-outer.score-panel__bar-outer--p1
+        .score-panel__name.score-panel__name--p1 Weedle
+        .score-panel__hp.score-panel__hp--p1
+          span.score-panel__counter--p1
+          | 0/30
 

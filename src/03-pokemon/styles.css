@@ -1,36 +1,339 @@
-* {
+/********
+ * Reset
+ ********/
+
+*,
+:before,
+:after {
   box-sizing: border-box;
 }
 
-.weddle {
+body {
+  margin: 0;
+}
+
+/********
+ * Fonts
+ ********/
+
+@font-face {
+  font-family: 'pokemon-font';
+  src: url('./pokemon-font.woff2') format('woff2');
+}
+
+body {
+  font-size: 20px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  font-family: 'pokemon-font', monospace;
+}
+
+/*********
+ * Layout
+ *********/
+
+.battlefield {
+  max-width: 1000px;
+  max-height: 800px;
   position: relative;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  /* Matches the default audio player color */
+  background-color: #f0f3f4;
 }
 
-.weedle__head {
-  height: 200px;
-  width: 200px;
-  margin: 200px;
-  border-radius: 50%;
-  background-color: #ebca77;
-  border-bottom: 10px solid #cc956a;
-  transform: rotate(40deg);
-}
-
-.weedle__nose {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
+.p1,
+.clickzone--p1 {
   position: absolute;
-  right: 0;
-  background-color: #bd70a2;
-  border-bottom: 10px solid #a75e8d;
+  bottom: 0;
+  left: 0;
 }
 
-.weedle__body {
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-  background-color: #ebca77;
-  border-bottom: 10px solid #cc956a;
-  transform: rotate(40deg);
+.p2,
+.clickzone--p2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.clickzone {
+  height: 400px;
+  width: 400px;
+  position: absolute;
+}
+
+.score-panel__name--p1,
+.score-panel__bar-outer--p1,
+.score-panel__hp--p1,
+.score-panel__name--p2,
+.score-panel__bar-outer--p2,
+.score-panel__hp--p2 {
+  position: absolute;
+}
+
+.score-panel__name--p1 {
+  bottom: 140px;
+  right: 80px;
+}
+
+.score-panel__name--p2 {
+  top: 45px;
+  left: 80px;
+}
+
+.score-panel__arrow {
+  position: absolute;
+  height: 120px;
+  width: 500px;
+  border: 5px solid black;
+}
+.score-panel__arrow::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+}
+
+.score-panel__arrow--p1 {
+  bottom: 50px;
+  right: 50px;
+  border-top: none;
+  border-left: none;
+}
+.score-panel__arrow--p1::after {
+  border-left: 35px solid transparent;
+  border-bottom: 15px solid black;
+}
+
+.score-panel__arrow--p2 {
+  top: 50px;
+  left: 50px;
+  border-top: none;
+  border-right: none;
+}
+.score-panel__arrow--p2::after {
+  border-right: 35px solid transparent;
+  border-bottom: 15px solid black;
+  right: 0;
+}
+
+.score-panel__bar-inner,
+.score-panel__bar-outer {
+  position: absolute;
+  margin-left: 70px;
+}
+.score-panel__bar-outer::after {
+  content: 'HP: ';
+  margin-left: -70px;
+}
+.score-panel__bar-inner--p1,
+.score-panel__bar-outer--p1 {
+  bottom: 100px;
+  right: 80px;
+}
+.score-panel__bar-inner--p2,
+.score-panel__bar-outer--p2 {
+  top: 90px;
+  left: 80px;
+}
+
+.score-panel__hp--p1 {
+  bottom: 70px;
+  right: 80px;
+}
+.score-panel__hp--p1::before {
+  content: counter(p2-score);
+}
+
+.score-panel__hp--p2 {
+  top: 120px;
+  left: 80px;
+}
+.score-panel__hp--p2::before {
+  content: counter(p1-score);
+}
+
+/****************
+ * Scoring Logic
+ ****************/
+
+::root {
+  counter-reset: p1-score, p2-score;
+}
+
+/* Make the checkboxes stack and disappear after being clicked */
+input.clickzone {
+  position: absolute;
+  z-index: 1;
+  height: 400px;
+  width: 400px;
+  margin: 0;
+  opacity: 0;
+}
+input.clickzone:checked {
+  transform: translateY(-99999px);
+}
+
+/* This counts the "unchecked" checkboxes */
+input.clickzone--p1[type='checkbox'] {
+  counter-increment: p1-score;
+}
+input.clickzone--p2[type='checkbox'] {
+  counter-increment: p2-score;
+}
+
+/* This would count the "checked" checkboxes, I don't need this number but this
+   line seems to be required, regrdless of the name of the counter */
+input.clickzone--p1[type='checkbox']:checked {
+  counter-increment: null;
+}
+input.clickzone--p2[type='checkbox']:checked {
+  counter-increment: null;
+}
+
+:checked + :checked + :checked ~ .score-panel__bar-inner {
+  width: 0;
+}
+
+:not(:checked) + :checked + :checked ~ .score-panel__bar-inner {
+  width: 111px;
+}
+
+:not(:checked) + :not(:checked) + :checked ~ .score-panel__bar-inner {
+  width: 222px;
+}
+
+.score-panel__bar-outer {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  height: 20px;
+  width: 333px;
+}
+.score-panel__bar-inner {
+  background-color: green;
+  border-radius: 20px;
+  height: 20px;
+  width: 333px;
+}
+
+/**************************
+ * Attack Logic - Player 1
+ **************************/
+
+@keyframes attack-p1 {
+  0% {
+    opacity: 0;
+    transform: rotate(235deg) scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(235deg) scaleY(5);
+  }
+}
+
+.attack-p1 {
+  opacity: 0;
+  bottom: 170px;
+  position: absolute;
+  left: 350px;
+  height: 100px;
+  width: 5px;
+  z-index: 1;
+  transform-origin: top;
+  border-left: 2px dashed grey;
+  border-right: 2px dotted grey;
+  transform: rotate(235deg) scaleY(5);
+}
+
+.clickzone--p1:checked
+  + .clickzone--p1:checked
+  + .clickzone--p1:checked
+  ~ .attack-p1--1 {
+  animation: attack-p1 0.5s;
+}
+
+.clickzone--p1:not(:checked)
+  + .clickzone--p1:checked
+  + .clickzone--p1:checked
+  ~ .attack-p1--2 {
+  animation: attack-p1 0.5s;
+}
+
+.clickzone--p1:not(:checked)
+  + .clickzone--p1:not(:checked)
+  + .clickzone--p1:checked
+  ~ .attack-p1--3 {
+  animation: attack-p1 0.5s;
+}
+
+/**************************
+ * Attack Logic - Player 2
+ **************************/
+
+@keyframes attack-p2 {
+  0% {
+    opacity: 0;
+    height: 40px;
+  }
+  30% {
+    opacity: 1;
+    height: 500px;
+    transform: rotate(50deg);
+  }
+  70% {
+    opacity: 1;
+    height: 500px;
+    transform: rotate(70deg);
+  }
+  100% {
+    opacity: 0;
+    height: 40px;
+  }
+}
+
+.attack-p2 {
+  opacity: 0;
+  top: 245px;
+  position: absolute;
+  right: 174px;
+  height: 40px;
+  width: 30px;
+  background-color: #e23447;
+  z-index: 1;
+  border-radius: 149px 5px 50px 96px;
+  transform-origin: top;
+  transform: rotate(50deg);
+}
+
+.clickzone--p2:checked
+  + .clickzone--p2:checked
+  + .clickzone--p2:checked
+  ~ .attack-p2--1 {
+  animation: attack-p2 1s;
+}
+
+.clickzone--p2:not(:checked)
+  + .clickzone--p2:checked
+  + .clickzone--p2:checked
+  ~ .attack-p2--2 {
+  animation: attack-p2 1s;
+}
+
+.clickzone--p2:not(:checked)
+  + .clickzone--p2:not(:checked)
+  + .clickzone--p2:checked
+  ~ .attack-p2--3 {
+  animation: attack-p2 1s;
+}
+
+/***************
+ * Audio Player
+ ***************/
+
+audio {
+  margin-left: 28px;
 }

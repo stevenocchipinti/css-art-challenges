@@ -1,0 +1,137 @@
+.gastly {
+  position: relative;
+  height: 400px;
+  width: 400px;
+}
+
+/********
+ * Smoke
+ ********/
+
+.gastly__smoke {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  color: rebeccapurple;
+}
+
+.gastly__smoke__ring {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: currentColor;
+  top: 160px;
+  left: 160px;
+  opacity: 0.9;
+}
+.gastly__smoke__ring1 {
+  box-shadow: -60px 60px 0 26px, 60px 60px 0 20px, 60px -60px 0 27px,
+    -60px -60px 0 23px, -23px -102px 0 0, -65px -121px 0 0, 34px -111px 0 0,
+    116px -67px 0 0, 111px -4px 0 0, 109px 68px 0 -1px, 4px 109px 0 3px,
+    -101px 97px 0 4px, -109px 10px 0 18px;
+  animation: spin 25s infinite linear;
+  transform: rotateY(180deg);
+}
+.gastly__smoke__ring2 {
+  box-shadow: -71px 60px 0 26px, 61px 60px 0 20px, 62px -60px 0 27px,
+    -76px -61px 0 7px, -34px -102px 0 14px, 36px -119px 0 -13px,
+    97px -98px 0 4px, 115px -18px 0 0, 110px 24px 0 -9px, 2px 103px 0 -1px,
+    56px 118px 0 -7px, -108px -60px 0 -3px, -85px 10px 0 24px;
+  animation: spin 25s infinite linear reverse;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*******
+ * Head
+ *******/
+
+.gastly__head {
+  position: relative;
+  margin: 0 auto;
+  top: 100px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: #290a4c;
+  border: 3px solid #684490;
+}
+
+/*******
+ * Eyes
+ *******/
+
+.gastly__eye {
+  position: absolute;
+  background-color: white;
+  height: 50px;
+  width: 100px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  top: 40px;
+}
+.gastly__eye::after {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 4px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.gastly__eye--left {
+  transform: rotate(225deg);
+  left: -10px;
+}
+.gastly__eye--left::after {
+  bottom: 8px;
+  left: 20px;
+  transform: rotate(-41deg);
+}
+.gastly__eye--right {
+  transform: rotate(135deg);
+  right: -10px;
+}
+.gastly__eye--right::after {
+  bottom: 8px;
+  right: 20px;
+  transform: rotate(-134deg);
+}
+
+/********
+ * Mouth
+ ********/
+
+.gastly__mouth {
+  position: absolute;
+  background-color: #ea7985;
+  height: 15px;
+  width: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  top: 140px;
+  left: 47px;
+}
+
+.gastly__tooth {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 21px solid #e1eee7;
+  position: absolute;
+}
+.gastly__tooth--left {
+  left: 4px;
+}
+.gastly__tooth--right {
+  right: 4px;
+}
