@@ -6,12 +6,14 @@
   "author": "Steve Occhipinti <dev@stevenocchipinti.com>",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build src/index.pug src/*/index.html src/*/index.pug"
+    "build": "scripts/build.sh",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "pug": "^2.0.3"
   },
   "dependencies": {
+    "gh-pages": "^2.0.0",
     "parcel-bundler": "^1.9.7"
   }
 }
