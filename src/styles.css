@@ -1,0 +1,85 @@
+::root {
+  counter-reset: exercise;
+}
+
+body {
+  background-color: #00d5ff;
+  background-image: linear-gradient(
+    45deg,
+    #fa8bff 0%,
+    #2bd2ff 52%,
+    #2bff88 90%
+  );
+  min-height: 100vh;
+  color: white;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0 5vw 50px;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  padding: 60px 0 20px;
+}
+
+.exercises {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 50px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 80px;
+}
+
+.exercise {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.5), 0 1px 0px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  overflow: hidden;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  counter-increment: exercise;
+}
+
+.exercise:hover,
+.exercise:focus,
+.exercise:active {
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5),
+    0px 5px 0px 0px rgba(5, 57, 88, 0.49);
+}
+
+.exercise__thumbnail {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.exercise__text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  line-height: 2em;
+  margin: 10px 20px;
+}
+.exercise__text::before {
+  content: counter(exercise);
+  font-size: 2em;
+  margin-right: 10px;
+  color: #444;
+}
+
+.rules {
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+  max-width: 580px;
+  margin: 20px auto;
+}
+.rules__list {
+  list-style: none;
+  padding-left: 10px;
+  margin: 10px 0 40px;
+}

@@ -2,16 +2,32 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
-    title CSS Pokemon
+    title CSS Art Challenges
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="styles.css")
+    link(href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet")
 
   body
-    p These are the CSS challenges so far
+    h1 CSS Art Challenges
 
-    ul
-      li
-        a(href="01-car") 01 Car
-      li
-        a(href="02-monster") 02 Monster
-      li
-        a(href="03-pokemon") 03 Pokemon
+    .rules
+      p.rules__text The rules are simple:
+      ul.rules__list
+        li 💻 No javascript allowed
+        li 🎨 Preprocessors like SASS, LESS, etc. are allowed
+        li ✍️  SVG is allowed if it's hand crafted
+        li 😈 If it feels like cheating, it probably is
+
+    .exercises
+
+      a.exercise(href="01-car")
+        img.exercise__thumbnail(src="01-car/thumb.jpg")
+        .exercise__text Car
+
+      a.exercise(href="02-monster")
+        img.exercise__thumbnail(src="02-monster/thumb.jpg")
+        .exercise__text Monster
+
+      a.exercise(href="03-pokemon")
+        img.exercise__thumbnail(src="03-pokemon/thumb.jpg")
+        .exercise__text Pokemon
