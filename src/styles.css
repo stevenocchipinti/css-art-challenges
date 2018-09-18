@@ -1,9 +1,9 @@
-::root {
+:root {
   counter-reset: exercise;
 }
 
 body {
-  background-color: #00d5ff;
+  background-color: #376f7a;
   background-image: linear-gradient(
     45deg,
     #23474e 0%,

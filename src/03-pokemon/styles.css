@@ -159,7 +159,7 @@ body {
  * Scoring Logic
  ****************/
 
-::root {
+:root {
   counter-reset: p1-score, p2-score;
 }
 
