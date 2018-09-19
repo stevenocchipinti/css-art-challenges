@@ -14,7 +14,14 @@ The rules are simple:
 Development
 -----------
 
-Currently the dev environment only runs one challenge at a time, for example
+Currently the dev environment just uses `parcel` to run one page at a time, for
+example:
+
+```
+npx parcel src/index.pug
+```
+
+or
 
 ```
 npx parcel src/01-car/index.html
@@ -24,8 +31,10 @@ npx parcel src/01-car/index.html
 Deploying
 ---------
 
-There is a build task that will create a `dist` directory containing a site that
-showcases all of the challenges, although this is currently very manual.
+This command will build and deploy the site:
 
-Eventually, this should automatically build an index page based on the file
-structure and deploy to github pages with the `gh-pages` package (or the like).
+```
+yarn deploy
+```
+
+Note: This calls `yarn build` before deploying.
