@@ -1,0 +1,119 @@
+.eureka {
+  position: relative;
+  height: 300px;
+  width: 80px;
+}
+
+.eureka__1 {
+  background-color: #354d63;
+  height: 290px;
+  width: 70px;
+  left: 5px;
+  top: 10px;
+}
+
+.eureka__2 {
+  background-color: #476682;
+  height: 200px;
+  width: 40px;
+  bottom: 0;
+}
+
+.eureka__3 {
+  background-color: #27333e;
+  height: 280px;
+  width: 5px;
+  bottom: 0;
+  right: 0;
+}
+
+.eureka__head {
+  background-color: #f4d9b4;
+  height: 50px;
+  width: 35px;
+  top: 0;
+  right: 5px;
+}
+
+.eureka__highlight {
+  background-color: red;
+  height: 40px;
+  width: 3px;
+  top: 30px;
+  right: 13px;
+}
+
+.eureka__triangle {
+  width: 20px;
+  height: 20px;
+  border-top: 90px solid #27333e;
+  border-right: 30px solid transparent;
+  left: 5px;
+  top: 10px;
+}
+
+.eureka__triangle-small {
+  width: 0;
+  height: 0;
+  border-top: 35px solid #27333e;
+  border-right: 10px solid transparent;
+  left: 45px;
+  top: 10px;
+}
+
+.eureka__1__lines::before {
+  content: '';
+  background-color: #888;
+  height: 2px;
+  width: 20px;
+  bottom: 20px;
+  right: 0px;
+  box-shadow: 0px -30px #888, 0px -60px #888, 0px -90px #888, 0 -120px #888,
+    0 -150px #888, 0 -180px #888, 0 -210px #888;
+}
+.eureka__1__lines::after {
+  content: '';
+  background-color: #888;
+  height: 2px;
+  width: 20px;
+  bottom: 10px;
+  right: 0px;
+  box-shadow: 0px -30px #888, 0px -60px #888, 0px -90px #888, 0 -120px #888,
+    0 -150px #888, 0 -180px #888, 0 -210px #888;
+}
+.eureka__1__lines {
+  background-color: #888;
+  height: 2px;
+  width: 30px;
+  bottom: 10px;
+  right: 5px;
+  box-shadow: 0px -30px #888, 0px -60px #888, 0px -90px #888, 0 -120px #888,
+    0 -150px #888, 0 -180px #888, 0 -210px #888;
+}
+
+.eureka__2__lines::before {
+  content: '';
+  background-color: #eee;
+  height: 2px;
+  width: 20px;
+  bottom: 20px;
+  box-shadow: 0px -30px #eee, 0px -60px #eee, 0px -90px #eee, 0 -120px #eee,
+    0 -150px #eee;
+}
+.eureka__2__lines::after {
+  content: '';
+  background-color: #eee;
+  height: 2px;
+  width: 20px;
+  bottom: 10px;
+  box-shadow: 0px -30px #eee, 0px -60px #eee, 0px -90px #eee, 0 -120px #eee,
+    0 -150px #eee;
+}
+.eureka__2__lines {
+  background-color: #eee;
+  height: 2px;
+  width: 30px;
+  bottom: 10px;
+  box-shadow: 0px -30px #eee, 0px -60px #eee, 0px -90px #eee, 0 -120px #eee,
+    0 -150px #eee, 0 -180px #eee;
+}
