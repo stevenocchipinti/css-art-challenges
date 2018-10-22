@@ -1,0 +1,125 @@
+.flinders {
+  position: relative;
+  height: 300px;
+  width: 200px;
+}
+
+/* Triangle */
+.flinders__main::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 30px solid #c3a51d;
+  top: -30px;
+}
+.flinders__main {
+  height: 60px;
+  width: 100px;
+  background-color: #f1c913;
+  bottom: 0;
+  left: 50px;
+}
+
+/* Dome */
+.flinders__turret::after {
+  content: '';
+  background-color: #74be4b;
+  border-radius: 50px 50px 0 0;
+  height: 40px;
+  width: 80px;
+  bottom: 40px;
+}
+/* Turret */
+.flinders__turret {
+  background-color: #f1c913;
+  height: 40px;
+  width: 80px;
+  bottom: 60px;
+  left: 60px;
+}
+
+/* Dome */
+.flinders__mini-turret::before {
+  content: '';
+  height: 10px;
+  width: 2px;
+  background-color: #74be4b;
+  top: -15px;
+  left: 9px;
+}
+.flinders__mini-turret::after {
+  content: '';
+  background-color: #74be4b;
+  border-radius: 20px 20px 0 0;
+  height: 10px;
+  width: 20px;
+  bottom: 15px;
+}
+/* Turret */
+.flinders__mini-turret {
+  background-color: #f1c913;
+  height: 20px;
+  width: 20px;
+  bottom: 127px;
+  left: 90px;
+}
+
+.flinders__arch {
+  content: '';
+  background-color: grey;
+  height: 50px;
+  width: 70px;
+  border-radius: 50px 50px 0 0;
+  bottom: 0;
+  left: 65px;
+}
+.flinders__arch::after {
+  content: '';
+  height: 2px;
+  width: 68px;
+  background-color: #666;
+  bottom: 20px;
+  left: 1px;
+}
+
+/* Side towers */
+.flinders__tower {
+  background-color: #e0b907;
+  height: 65px;
+  width: 45px;
+  bottom: 0;
+}
+.flinders__tower::before {
+  content: '';
+  background-color: #73be4b;
+  height: 20px;
+  width: 45px;
+  top: -20px;
+  border-radius: 50px 50px 0 0;
+}
+.flinders__tower::after {
+  content: '';
+  background-color: #808080;
+  height: 30px;
+  width: 20px;
+  bottom: 0;
+  left: 12px;
+  border-radius: 50px 50px 0 0;
+}
+.flinders__tower--left {
+  left: 5px;
+}
+.flinders__tower--right {
+  right: 5px;
+}
+
+.flinders__clock {
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+  background-color: #666;
+  bottom: 55px;
+  left: 95px;
+}
